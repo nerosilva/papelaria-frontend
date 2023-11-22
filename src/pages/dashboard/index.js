@@ -8,7 +8,7 @@ export default function Dashboard() {
   return (
     <div className="logon-container">
         <h1>Pagina Principal</h1>
-        <p>Deus seja louvado!!!!!</p>
+
       
 
     </div>
