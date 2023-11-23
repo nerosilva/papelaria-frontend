@@ -3,6 +3,8 @@ export default function Menu(){
 
     <div>
         <h1>Menu</h1>
+        <a href="">Usuario</a>
+        <a href="">Usuario</a>
     </div>
 
  )
