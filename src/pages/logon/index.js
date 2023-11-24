@@ -1,13 +1,15 @@
 import './styles.css'
-import Logo from '../../assets/img/logo 03.jpg'
-import { useHistory } from 'react-router-dom'
-import Dashboard from '../dashboard';
+import Logo from '../../assets/img/logo 02.jpg'
+import { useNavigate } from 'react-router-dom'
 
+export default function Logon() {
+   const  navigate = useNavigate();
 
+    const logar =(e)=>{
+      e.preventDefault();
+      navigate('/dashboard');
 
-export default function logon() {
-
-
+    }
 
   return (
     <div className="logon-container">
@@ -19,7 +21,7 @@ export default function logon() {
       <section className="form">
 
         <h1>Faça seu login</h1>
-        <form>
+        <form onSubmit={logar}>
 
           <input placeholder="Email" />
           <input placeholder="Senha" type='password' />
