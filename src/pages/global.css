@@ -1,4 +1,4 @@
-*{
+* {
 
     padding: 0;
     margin: 0;
@@ -6,22 +6,45 @@
 
 .dashboard-container {
     background-color: #0056b3;
-    height: 100vb; display: flex;
+    height: 100vb;
+    display: flex;
     flex-direction: row;
-    width: 95%;
+    width: 100%;
     margin: auto;
 
 
 }
-.menu{
+
+.menu {
 
     width: 20%;
     background-color: #ffff;
-margin: 5px;
+
 
 }
-.Principal{
+
+.Principal {
     width: 80%;
     background-color: #ffff;
-    margin: 5px;
+
+    padding: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 5px;
+
+}
+
+td {
+    border: solid 0.5px #adb9d3;
+    padding: 5px;
+
+}
+
+.botoes:hover {
+    cursor: pointer;
+    background-color: silver;
+
 }
