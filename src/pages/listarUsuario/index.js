@@ -9,13 +9,15 @@ import Head from '../../componetes/Head';
 
 export default function Listausuario() {
 
-  const dados = [
+  // const dados = [
 
-    { id: 1, nome: "Nero", email: "Jaldevan2014@gmail.com" },
-    { id: 2, nome: "Silva", email: "Nerinho0007@gmail.com" },
-    { id: 3, nome: "Caue", email: "Cauenero007@gmail.com" },
-  ]
-  
+    // { id: 1, nome: "Nero", email: "Jaldevan2014@gmail.com" },
+    // { id: 2, nome: "Silva", email: "Nerinho0007@gmail.com" },
+    // { id: 3, nome: "Caue", email: "Cauenero007@gmail.com" },
+
+  // ]
+  const banco = JSON.parse(localStorage.getItem("cd-usuarios") || "[]");
+
   const apagar = (id) => {
     confirmAlert({
       title: 'Excluir Usuario',
@@ -35,14 +37,14 @@ export default function Listausuario() {
 
   return (
     <div className="dashboard-container">
-      
+
       <div className='menu'>
 
         <Menu />
 
       </div>
       <div className='Principal'>
-      <Head title='lista de Usuario'/>
+        <Head title='lista de Usuario' />
         <Link to="/cadastrousuario" className='btn-novo'>Novo Cadastro</Link>
         <table className="table">
           <tr>
@@ -55,21 +57,21 @@ export default function Listausuario() {
 
           </tr>
           {
-            dados.map((usu) => {
+            banco.map((usu) => {
               return (
                 <tr key={usu.toString}>
                   <td>{usu.id}</td>
                   <td>{usu.nome}</td>
                   <td>{usu.email}</td>
-                  
+
                   <td className='botoes'>
                     <FiEdit size={18} color='#3a5795' />
                   </td>
                   <td className='botoes'>
-                    <FiTrash 
-                    size={18} 
-                    color='red'
-                    onClick={(e)=>apagar(usu.id)}
+                    <FiTrash
+                      size={18}
+                      color='red'
+                      onClick={(e) => apagar(usu.id)}
                     />
                   </td>
 
