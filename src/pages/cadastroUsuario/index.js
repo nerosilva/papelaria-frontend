@@ -20,7 +20,12 @@ export default function Cadastrousuario() {
         email,
         senha,
 
+
     }
+
+
+
+    
     function salvardados(e) {
 
         e.preventDefault();

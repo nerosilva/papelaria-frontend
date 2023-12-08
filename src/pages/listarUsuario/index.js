@@ -1,3 +1,4 @@
+import React, { useState,useEffect } from 'react';
 import '../../pages/global.css'
 import Logo from '../../assets/img/logo.jpg'
 import Menu from '../../componetes/menu'
@@ -7,16 +8,29 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { Link } from 'react-router-dom';
 import Head from '../../componetes/Head';
 
+
 export default function Listausuario() {
+  const [dados, setDados] = useState([]);
+  const [banco, setBanco] = useState([]);
+
 
   // const dados = [
 
-    // { id: 1, nome: "Nero", email: "Jaldevan2014@gmail.com" },
-    // { id: 2, nome: "Silva", email: "Nerinho0007@gmail.com" },
-    // { id: 3, nome: "Caue", email: "Cauenero007@gmail.com" },
+  // { id: 1, nome: "Nero", email: "Jaldevan2014@gmail.com" },
+  // { id: 2, nome: "Silva", email: "Nerinho0007@gmail.com" },
+  // { id: 3, nome: "Caue", email: "Cauenero007@gmail.com" },
 
   // ]
-  const banco = JSON.parse(localStorage.getItem("cd-usuarios") || "[]");
+  useEffect(()=>{
+     mostrardados();
+  },[])
+
+
+  function mostrardados() 
+
+  {
+   setBanco(JSON.parse(localStorage.getItem("cd-usuarios") || "[]"));
+  }
 
   const apagar = (id) => {
     confirmAlert({
@@ -25,7 +39,14 @@ export default function Listausuario() {
       buttons: [
         {
           label: 'Sim',
-          onClick: () => alert(` Voce apagou o usuario id:${id}`)
+          onClick: () => {
+
+            setDados(banco.filter(item=>item.id!=id))
+            console.log
+           // localStorage.setItem("cd-usuarios", JSON.stringify(dados));
+            alert(` Voce apagou o usuario id:${id}`)
+          }
+
         },
         {
           label: 'Nao',
