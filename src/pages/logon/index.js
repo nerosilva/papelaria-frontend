@@ -1,5 +1,5 @@
 import './styles.css'
-import Logo from '../../assets/img/logo 02.jpg'
+import Logo from '../../assets/img/logo 03.jpg'
 import { useNavigate } from 'react-router-dom'
 
 export default function Logon() {

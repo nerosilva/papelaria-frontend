@@ -32,24 +32,23 @@ export default function Listausuario() {
    setBanco(JSON.parse(localStorage.getItem("cd-usuarios") || "[]"));
   }
 
-  const apagar = (id) => {
+  const  apagar = (id) => {
     confirmAlert({
-      title: 'Excluir Usuario',
-      message: 'Deseja realmente excluir esse Usuario.',
+      title: 'Excluir Usuário',
+      message: 'Deseja realmente excluir esse usuário?',
       buttons: [
         {
           label: 'Sim',
           onClick: () => {
-
-            setDados(banco.filter(item=>item.id!=id))
-            console.log
-           // localStorage.setItem("cd-usuarios", JSON.stringify(dados));
-            alert(` Voce apagou o usuario id:${id}`)
+            let dadosnovos = banco.filter(item => item.id !== id);
+            localStorage.setItem("cd-usuarios", JSON.stringify(dadosnovos));
+            setBanco(dadosnovos); // Atualiza o estado com os dados filtrados
+            alert(`Você apagou o usuário id:${id}`);
           }
-
+          
         },
         {
-          label: 'Nao',
+          label: 'Não',
           onClick: () => alert('Click No')
         }
       ]
