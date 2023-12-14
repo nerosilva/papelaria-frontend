@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../pages/global.css'
 import Logo from '../../assets/img/logo.jpg'
 import Menu from '../../componetes/menu'
@@ -7,11 +7,13 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { Link } from 'react-router-dom';
 import Head from '../../componetes/Head';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Listausuario() {
   const [dados, setDados] = useState([]);
   const [banco, setBanco] = useState([]);
+  const navigate = useNavigate();
 
 
   // const dados = [
@@ -21,18 +23,16 @@ export default function Listausuario() {
   // { id: 3, nome: "Caue", email: "Cauenero007@gmail.com" },
 
   // ]
-  useEffect(()=>{
-     mostrardados();
-  },[])
+  useEffect(() => {
+    mostrardados();
+  }, [])
 
 
-  function mostrardados() 
-
-  {
-   setBanco(JSON.parse(localStorage.getItem("cd-usuarios") || "[]"));
+  function mostrardados() {
+    setBanco(JSON.parse(localStorage.getItem("cd-usuarios") || "[]"));
   }
 
-  const  apagar = (id) => {
+  const apagar = (id) => {
     confirmAlert({
       title: 'Excluir Usuário',
       message: 'Deseja realmente excluir esse usuário?',
@@ -45,7 +45,7 @@ export default function Listausuario() {
             setBanco(dadosnovos); // Atualiza o estado com os dados filtrados
             alert(`Você apagou o usuário id:${id}`);
           }
-          
+
         },
         {
           label: 'Não',
@@ -83,9 +83,10 @@ export default function Listausuario() {
                   <td>{usu.id}</td>
                   <td>{usu.nome}</td>
                   <td>{usu.email}</td>
-
                   <td className='botoes'>
-                    <FiEdit size={18} color='#3a5795' />
+                    <Link to={`/editarusuario/${usu.id}`}>
+                      <FiEdit size={18} color='#3a5795' />
+                    </Link>
                   </td>
                   <td className='botoes'>
                     <FiTrash
