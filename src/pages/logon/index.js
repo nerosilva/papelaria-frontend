@@ -1,15 +1,23 @@
 import './styles.css'
 import Logo from '../../assets/img/logo 03.jpg'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
 
 export default function Logon() {
-   const  navigate = useNavigate();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState();
+  const [senha, setSenha] = useState();
 
-    const logar =(e)=>{
-      e.preventDefault();
+  const logar = (e) => {
+    e.preventDefault();
+    let banco = JSON.parse(localStorage.getItem("cd-usuarios") || "[]");
+    let dadosnovos = banco.filter(item => item.email === email && item.senha === senha);
+    if (dadosnovos.length > 0) {
       navigate('/dashboard');
-
+    } else {
+      alert("Dados incorretos!!!");
     }
+  }
 
   return (
     <div className="logon-container">
@@ -24,7 +32,13 @@ export default function Logon() {
         <form onSubmit={logar}>
 
           <input placeholder="Email" />
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+
           <input placeholder="Senha" type='password' />
+          value={senha}
+          onChange={e => setEmail(e.target.value)}
+
           <button type="submit">Entrar</button>
           <a href="#">Novo Cadastro</a>
 
