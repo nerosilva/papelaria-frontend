@@ -1,5 +1,5 @@
 import './styles.css'
-import Logo from '../../assets/img/logo.jpg'
+import Logo from '../../assets/img/IMG-20230804-WA0123.jpeg'
 import Menu from '../../componetes/menu'
 
 
@@ -10,11 +10,15 @@ export default function Dashboard() {
     <div className="dashboard-container">
       <div className='menu'>
 
-         <Menu/>
+        <Menu />
 
       </div>
+
       <div className='Principal'>
         <h1>Pagina Principal</h1>
+        <div className='logo'>
+          <img src={Logo} />
+        </div>
       </div>
 
     </div>

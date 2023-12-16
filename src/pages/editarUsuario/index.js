@@ -25,26 +25,25 @@ export default function Editarusuario() {
     senha
   }
   useEffect(() => {
-    if (status===1) {
+    if (status === 1) {
       mostrardados(id);
       setStatus(false);
     }
 
   }, [banco])
 
-  async function mostrardados() {
-
-    setBanco(JSON.parse(localStorage.getItem("cd-usuarios") || "[]"));
-    //let dadosnovos = await banco.filter(item => item.id === id);
-    banco.map((usu) => {
-      if (usu.id === id) {
-        setNome(usu.nome);
-        setEmail(usu.email);
-        setSenha(usu.senha);
-      }
+  async function mostrardados(idu) {
+    let listaUser = JSON.parse(localStorage.getItem("cd-usuarios"));
+    listaUser.
+      filter(value => value.id == idu).
+      map(value => {
+        setNome(value.nome);
+        setEmail(value.email);
+        setSenha(value.senha);
 
 
-    })
+      })
+
   }
   function salvardados(e) {
     e.preventDefault();
