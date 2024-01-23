@@ -1,0 +1,13 @@
+.head {
+
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+
+}
+
+h2 {
+    width: 95%;
+    text-align: center;
+
+}
