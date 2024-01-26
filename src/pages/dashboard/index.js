@@ -15,8 +15,8 @@ export default function Dashboard() {
       </div>
 
       <div className='Principal'>
-        <h1>Pagina Principal do meu Site07</h1>
-        Deus e bom. Vai dá certo agora!
+        <h1>Pagina Principal</h1>
+        
         <div className='logo'>
           <img src={Logo} />
         </div>
