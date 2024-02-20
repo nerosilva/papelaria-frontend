@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import '../../pages/global.css'
-import Menu from '../../componetes/menu'
+import Menu from '../../componentes/menu'
 import { FiFilePlus } from "react-icons/fi";
 import { useNavigate } from 'react-router-dom';
-import Head from '../../componetes/Head';
+import Head from '../../componentes/head';
 import { FaSave } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 

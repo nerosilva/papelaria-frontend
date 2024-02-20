@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import '../../pages/global.css'
-import Menu from '../../componetes/menu'
+import Menu from '../../componentes/menu'
 import { useNavigate } from 'react-router-dom';
-import Head from '../../componetes/Head';
+import Head from '../../componentes/head';
 import { FaSave } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 
@@ -11,8 +11,8 @@ export default function Cadastroproduto() {
     const navigate = useNavigate();
     const [status, setStatus] = useState("");
     const [descricao, setDescricao] = useState("");
-    const [estoque_minimo, setEstoque_minimo] = useState(0);
-    const [estoque_maximo, setEstoque_maximo] = useState(10);
+    const [estoque_minimo, setEstoque_maximo] = useState(0);
+    const [estoque_maximo, setEstoque_minimo] = useState(10);
 
     const produto = {
         id: Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9 * Math.pow(10, 12)).toString(36),
@@ -34,7 +34,7 @@ export default function Cadastroproduto() {
         else if (estoque_maximo === "" || estoque_maximo === 0)
             i++;
         if (i === 0) {
-            const banco = JSON.parse(localStorage.getItem("cd-produtos") || "[]");
+            const banco = JSON.parse(localStorage.getItem("cd-produto") || "[]");
             banco.push(produto);
             localStorage.setItem("cd-produto", JSON.stringify(banco));
             alert("Produto salvo com sucesso");
@@ -69,13 +69,13 @@ export default function Cadastroproduto() {
                         <input
                             type='number'
                             value={estoque_minimo}
-                            onChange={e => setEstoque_minimo(e.target.value)}
+                            onChange={e => setEstoque_maximo(e.target.value)}
                             placeholder='Digite a senha' />
 
                         <input
                             type='number'
                             value={estoque_maximo}
-                            onChange={e => setEstoque_maximo(e.target.value)}
+                            onChange={e => setEstoque_minimo(e.target.value)}
                             placeholder='Digite a senha' />
 
                         <div className='acao'>

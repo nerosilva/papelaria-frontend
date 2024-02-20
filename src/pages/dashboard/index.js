@@ -1,6 +1,6 @@
 import './styles.css'
-import Logo from '../../assets/img/IMG-20230804-WA0123.jpeg'
-import Menu from '../../componetes/menu'
+import Logo from '../../assets/img/images.png'
+import Menu from '../../componentes/menu'
 
 
 

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 import '../../pages/global.css';
-import Menu from '../../componetes/menu';
+import Menu from '../../componentes/menu';
 import { FiFilePlus } from "react-icons/fi";
 import { MdCancel } from "react-icons/md";
 import { FaSave } from "react-icons/fa";
 import { useNavigate, useParams } from 'react-router-dom';
-import Head from '../../componetes/Head';
+import Head from '../../componentes/head';
 
 export default function Editarusuario() {
   let { id } = useParams();
@@ -25,12 +25,12 @@ export default function Editarusuario() {
     senha
   }
   useEffect(() => {
-    if (status === 1) {
+ 
       mostrardados(id);
-      setStatus(false);
-    }
+ 
+    
 
-  }, [banco])
+  }, [])
 
   async function mostrardados(idu) {
     let listaUser = JSON.parse(localStorage.getItem("cd-usuarios"));
@@ -73,7 +73,7 @@ export default function Editarusuario() {
 
         <Menu />
       </div>
-      <div className='principal'>
+      <div className='Principal'>
         <Head title="Editar Usuário" />
         <div className='form-container'>
           <form className='form-cadastro' onSubmit={salvardados} >

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import '../../pages/global.css'
 import Logo from '../../assets/img/logo.jpg'
-import Menu from '../../componetes/menu'
+import Menu from '../../componentes/menu'
 import { FiEdit, FiTrash, FiDelete, FiFilePlus } from "react-icons/fi";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { Link } from 'react-router-dom';
-import Head from '../../componetes/Head';
+import Head from '../../componentes/head';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function Listarproduto() {
+export default function Listaproduto() {
  const [banco,setBanco] = useState([]);
   const navigate = useNavigate();
 
@@ -64,7 +64,7 @@ export default function Listarproduto() {
 
       </div>
       <div className='Principal'>
-        <Head title='listar de Produto' />
+        <Head title='lista de Produto' />
         <Link to="/cadastroproduto" className='btn-novo'>Novo Cadastro</Link>
         <table className="table">
           <tr>
@@ -72,8 +72,8 @@ export default function Listarproduto() {
             <th>Id</th>
             <th>Status</th>
             <th>Descriçao</th>
-            <th>Estoque_minimo</th>
             <th>Estoque_maximo</th>
+            <th>Estoque_minimo</th>
             <th></th>
             <th></th>
 
@@ -88,7 +88,7 @@ export default function Listarproduto() {
                   <td>{pro.estoque_maximo}</td>
                   <td>{pro.estoque_minimo}</td>
                   <td className='botoes'>
-                    <Link to={`/listarproduto/${pro.id}`}>
+                    <Link to={`/editarproduto/${pro.id}`}>
                       <FiEdit size={18} color='#3a5795' />
                     </Link>
                   </td>

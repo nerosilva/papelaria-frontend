@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import '../../pages/global.css'
 import Logo from '../../assets/img/logo.jpg'
-import Menu from '../../componetes/menu'
+import Menu from '../../componentes/menu'
 import { FiEdit, FiTrash, FiDelete, FiFilePlus } from "react-icons/fi";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { Link } from 'react-router-dom';
-import Head from '../../componetes/Head';
+import Head from '../../componentes/head';
 import { useNavigate } from 'react-router-dom';
 
 
