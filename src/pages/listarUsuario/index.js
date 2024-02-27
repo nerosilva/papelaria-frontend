@@ -8,6 +8,8 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { Link } from 'react-router-dom';
 import Head from '../../componentes/head';
 import { useNavigate } from 'react-router-dom';
+import api from '../../server/api';
+
 
 
 export default function Listausuario() {
@@ -28,9 +30,26 @@ export default function Listausuario() {
   }, [])
 
 
+  function cep() {
+
+    const url = "https://viacep.com.br/ws/77807270/json/"
+    fetch(url)
+      .then(function (response) {
+        //return response.json
+        console.log(response.json())
+
+      })
+  }
+
+
   function mostrardados() {
-    setBanco(JSON.parse(localStorage.getItem("cd-usuarios") || "[]"));
-  
+    //setBanco(JSON.parse(localStorage.getItem("cd-usuarios") || "[]"));
+    api.get('/usuario')
+
+      .then(res => {
+        console.log(res.data)
+        setBanco(res.data)
+      })
   }
 
   const apagar = (id) => {
