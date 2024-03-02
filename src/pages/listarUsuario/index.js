@@ -27,18 +27,36 @@ export default function Listausuario() {
   // ]
   useEffect(() => {
     mostrardados();
+    consultarCEP("77807270")
+      .then(resultado => {
+        console.log('Dados do CEP:', resultado);
+      });
   }, [])
 
 
-  function cep() {
+  async function consultarCEP(cep) {
 
-    const url = "https://viacep.com.br/ws/77807270/json/"
-    fetch(url)
-      .then(function (response) {
-        //return response.json
-        console.log(response.json())
+    // Substitua a URL base pela URL específica do ViaCEP com o CEP desejado
+    const url = `https://viacep.com.br/ws/${cep}/json/`;
 
+    // Utilizando o método fetch para fazer a requisição GET
+    return fetch(url)
+      .then(response => {
+        // Verifica se a requisição foi bem-sucedida (status 2xx)
+        if (!response.ok) {
+          throw new Error(`Erro ao consultar o CEP: ${response.status}`);
+        }
+
+        // Parseia o JSON da resposta
+        return response.json();
       })
+      .then(data => {
+        // Retorna os dados do CEP
+        return data;
+      })
+      .catch(error => {
+        console.error('Erro na requisição:', error);
+      });
   }
 
 
@@ -47,8 +65,8 @@ export default function Listausuario() {
     api.get('/usuario')
 
       .then(res => {
-        console.log(res.data)
-        setBanco(res.data)
+        console.log(res.data.usuarios)
+        setBanco(res.data.usuarios)
       })
   }
 
@@ -60,10 +78,19 @@ export default function Listausuario() {
         {
           label: 'Sim',
           onClick: () => {
-            let dadosnovos = banco.filter(item => item.id !== id);
-            localStorage.setItem("cd-usuarios", JSON.stringify(dadosnovos));
-            setBanco(dadosnovos); // Atualiza o estado com os dados filtrados
-            alert(`Você apagou o usuário id:${id}`);
+            //let dadosnovos = banco.filter(item => item.id !== id);
+            //localStorage.setItem("cd-usuarios", JSON.stringify(dadosnovos));
+            //setBanco(dadosnovos); // Atualiza o estado com os dados filtrados
+            api.delete(`/usuario/${id}`)
+              .then(res => {
+                if (res.status == 200) {
+                  alert(`Você apagou o usuário id:${id}`);  
+                      mostrardados();
+                        } else {
+                  alert("houve um problemano servidor")
+                }
+              })
+
           }
 
         },

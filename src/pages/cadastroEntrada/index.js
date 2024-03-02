@@ -113,7 +113,6 @@ export default function CadastroEntrada() {
                 })
               }
 
-
             </select>
 
             <input type="number" value={quantidade} onChange={(e) => setQuantidade(e.target.value)} placeholder="Digite a quantidade do produto" />
@@ -122,11 +121,11 @@ export default function CadastroEntrada() {
             <div>
               <button type="submit" className="btn-save">
                 <FaSave />
-                Salvar
+                  Salvar
               </button>
               <button type="button" className="btn-cancel">
                 <MdOutlineCancel />
-                Cancelar
+                   Cancelar
               </button>
             </div>
           </form>

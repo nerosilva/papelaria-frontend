@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import Head from '../../componentes/head';
 import { FaSave } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
+import api from '../../server/api';
+
+
 
 export default function Cadastrousuario() {
     const navigate = useNavigate();
@@ -15,7 +18,7 @@ export default function Cadastrousuario() {
     const [senha, setSenha] = useState("");
 
     const usuario = {
-        id:Date.now().toString(36)+Math.floor(Math.pow(10,12)+Math.random()*9*Math.pow(10,12)).toString(36),
+        id: Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9 * Math.pow(10, 12)).toString(36),
         nome,
         email,
         senha,
@@ -23,29 +26,35 @@ export default function Cadastrousuario() {
 
     }
 
-
-
-    
     function salvardados(e) {
 
         e.preventDefault();
         // console.log(usuario)
 
-        if(nome=="")
-        alert("preencha o campo nome")
-        else if(email=="")
-        alert("preencha o campo email")
-        else if(senha=="")
-        alert("preenha o campo senha")
+        if (nome == "")
+            alert("preencha o campo nome")
+        else if (email == "")
+            alert("preencha o campo email")
+        else if (senha == "")
+            alert("preenha o campo senha")
         else {
 
-        const banco = JSON.parse(localStorage.getItem("cd-usuarios") || "[]");
-        banco.push(usuario);
-        localStorage.setItem("cd-usuarios", JSON.stringify(banco));
-        alert("Usuario salvo com sucesso");
-        navigate('/listausuario');
+            //const banco = JSON.parse(localStorage.getItem("cd-usuarios") || "[]");
+            // banco.push(usuario);
+            // localStorage.setItem("cd-usuarios", JSON.stringify(banco));
 
-    }
+            api.post('/usuario', usuario,
+                { headers: { "Content-Type": "application/json" } })
+                .then(function (response) {
+                    console.log(response.data)
+                    alert(response.data.mensagem);
+                }
+
+                )
+
+            navigate('/listausuario');
+
+        }
     }
 
     return (
