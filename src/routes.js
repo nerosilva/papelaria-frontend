@@ -5,7 +5,7 @@ import Logon from './pages/logon';
 import Dashboard from './pages/dashboard';
 
 import Listausuario from './pages/listarUsuario';
-import Listaentrada from './pages/listaEntrada';
+import Listarentrada from './pages/listarEntrada';
 import Listaproduto from './pages/listaProduto';
 import Listasaida from './pages/listaSaida';
 import Listaestoque from './pages/listaEstoque';
@@ -32,7 +32,7 @@ export default function Rotas() {
 
                 <Route path="/listausuario" element={<Listausuario />} />
                 <Route path="/listaproduto" element={<Listaproduto />} />
-                <Route path="/listaentrada" element={<Listaentrada />} />
+                <Route path="/listarentrada" element={<Listarentrada />} />
                 <Route path="/listasaida" element={<Listasaida />} />
                 <Route path="/listaestoque" element={<Listaestoque />} />
 

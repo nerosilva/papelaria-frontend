@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Head from '../../componentes/head';
 import { FaSave } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
+import api from '../../server/api';
 
 export default function Cadastroproduto() {
     const navigate = useNavigate();
@@ -34,11 +35,20 @@ export default function Cadastroproduto() {
         else if (estoque_maximo === "" || estoque_maximo === 0)
             i++;
         if (i === 0) {
-            const banco = JSON.parse(localStorage.getItem("cd-produto") || "[]");
-            banco.push(produto);
-            localStorage.setItem("cd-produto", JSON.stringify(banco));
-            alert("Produto salvo com sucesso");
-            navigate('/listaproduto');
+            // const banco = JSON.parse(localStorage.getItem("cd-produto") || "[]");
+            // banco.push(produto);
+            // localStorage.setItem("cd-produto", JSON.stringify(banco));
+            // alert("Produto salvo com sucesso");
+            api.post('/produto', produto,
+            { headers: { "Content-Type": "application/json" } })
+            .then(function (response) {
+                console.log(response.data)
+                alert(response.data.mensagem);
+                navigate('/listaproduto');
+            }
+
+            )
+            
         } else {
             alert("Verifique! Há campos vazios!")
         }

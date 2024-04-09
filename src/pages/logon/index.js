@@ -19,15 +19,21 @@ export default function Logon() {
     // } else {
     //   alert("Dados incorretos!!!");
     // }
-    api.post("usuario/login",{email,senha})
-    .then(res => {
-      console.log(res.status)
-     if(res.status===200){
-      navigate('/dashboard')
+    api.post("usuario/login", { email, senha })
+      .then(res => {
+        console.log(res.status)
+        if (res.status === 200) {
+          alert(res.data.mensagem)
+          navigate('/dashboard')
 
-     }
-      
-    })
+        }
+        if (res.status === 500) {
+          alert(res.data.mensagem)
+
+
+        }
+
+      })
   }
 
   return (

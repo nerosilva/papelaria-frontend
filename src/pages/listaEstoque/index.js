@@ -8,17 +8,15 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { Link } from 'react-router-dom';
 import Head from '../../componentes/head';
 import { useNavigate } from 'react-router-dom'
+import api from '../../server/api';
+
+
 
 export default function Listaestoque(){
 const [dados,setDados] = useState([]);
 const [banco,setBanco] = useState([]);
 const navigate=useNavigate();
-    // const dados=[
-    //     {id:1,nome:"Carlos",email:"carlos@gmail.com",senha:"123"},
-    //     {id:2,nome:"Felipe",email:"felipe@gmail.com",senha:"321"},
-    //     {id:3,nome:"Nilson",email:"nilson@gmail.com",senha:"321"},
-
-    // ]
+    
     useEffect(()=>{
       mostrardados();
     },[])
@@ -30,7 +28,10 @@ const navigate=useNavigate();
 
     function mostrardados()
     {
-      setBanco(JSON.parse(localStorage.getItem("cd-estoques") || "[]"));
+     api.get("/estoque")
+     .then((res)=>{
+      setBanco(res.data.estoques);
+     })
     }
     function mostrarnome(idproduto){
       let nome= "";
@@ -54,7 +55,7 @@ const navigate=useNavigate();
             label: 'Sim',
             onClick: () => {
               let dadosnovos = banco.filter(item => item.id !== id);
-              localStorage.setItem("cd-estoques", JSON.stringify(dadosnovos));
+              //localStorage.setItem("cd-estoques", JSON.stringify(dadosnovos));
               setBanco(dadosnovos); // Atualiza o estado com os dados filtrados
               alert(`Você apagou o Estoque id:${id}`);
             }
@@ -78,7 +79,7 @@ const navigate=useNavigate();
 
       </div>
       <div className='Principal'>
-        <Head title='lista de Produto' />
+        <Head title='lista de Estoque' />
         <Link to="/cadastroproduto" className='btn-novo'>Novo Cadastro</Link>
         <table className="table">
           
@@ -95,9 +96,10 @@ const navigate=useNavigate();
                 return(
                   <tr key={linha.toString()}>
                     <td>{linha.id}</td>    
-                    <td>{mostrarnome(linha.id_produto)}</td>   
+                    <td>{(linha.id_produto)}</td>   
+                    <td>{(linha.descricao)}</td>   
                     <td>{linha.quantidade}</td>    
-                    <td>{formatReal(linha.valor_unitario)}</td>    
+                    <td>{(linha.valor_unitario)}</td>    
          
                     <td className='botoes'> 
                     <Link to={`/editarproduto/${linha.id}`}>

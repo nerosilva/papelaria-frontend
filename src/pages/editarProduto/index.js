@@ -7,6 +7,8 @@ import { MdCancel } from "react-icons/md";
 import { FaSave } from "react-icons/fa";
 import { useNavigate, useParams } from 'react-router-dom';
 import Head from '../../componentes/head';
+import api from '../../server/api';
+
 
 export default function Editarprodutos() {
   let { id } = useParams();
@@ -15,9 +17,9 @@ export default function Editarprodutos() {
   const [descricao, setDescricao] = useState("");
   const [estoque_minimo, setEstoque_maximo] = useState("");
   const [estoque_maximo, setEstoque_minimo] = useState([]);
+  const [banco, setBanco] = useState([]);
 
-
-  const usuario = {
+  const produto = {
     id,
     status,
     descricao,
@@ -30,18 +32,13 @@ export default function Editarprodutos() {
 
   }, [])
   async function mostrardados(idu) {
-    let listaUser = JSON.parse(localStorage.getItem("cd-produto"));
+    api.get(`/produto/${id}`).then((res)=>{
+      setStatus(res.data.produto[0].status);
+      setDescricao(res.data.produto[0].descricao);
+      setEstoque_minimo(res.data.produto[0].estoque_minimo);
+      setEstoque_maximo(res.data.produto[0].estoque_maximo);
 
-    listaUser.
-      filter(value => value.id == idu).
-      map(value => {
-        setStatus(value.status);
-        setDescricao(value.descricao);
-        setEstoque_maximo(value.estoque_maximo);
-        setEstoque_minimo(value.estoque_minimo);
-
-
-      })
+    })
   }
 
 
@@ -60,13 +57,18 @@ export default function Editarprodutos() {
     else if (estoque_maximo == "")
       i++;
     if (i == 0) {
-      const banco = JSON.parse(localStorage.getItem("cd-produto") || "[]");
-      let dadosnovos = banco.filter(item => item.id !== id);
-      console.log(dadosnovos);
-      dadosnovos.push(usuario);
-      localStorage.setItem("cd-produto", JSON.stringify(dadosnovos));
-      alert("Usuário salvo com sucesso");
+      
+     api.put("/produto",produto).then((res)=>{
+      if(res.status===200){  
+      alert(res.data.mensagem);
       navigate('/listaproduto');
+      }
+      if(res.status===500){
+        alert(res.data.error);
+      }
+      
+     })
+
     } else {
       alert("Verifique! Há campos vazios!")
     }

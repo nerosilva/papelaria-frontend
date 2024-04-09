@@ -8,28 +8,31 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { Link } from 'react-router-dom';
 import Head from '../../componentes/head';
 import { useNavigate } from 'react-router-dom';
+import api from '../../server/api';
+
 
 
 export default function Listaproduto() {
- const [banco,setBanco] = useState([]);
+  const [banco, setBanco] = useState([]);
   const navigate = useNavigate();
 
 
-  // const dados = [
 
-  // { id: 1, nome: "Nero", email: "Jaldevan2014@gmail.com" },
-  // { id: 2, nome: "Silva", email: "Nerinho0007@gmail.com" },
-  // { id: 3, nome: "Caue", email: "Cauenero007@gmail.com" },
-
-  // ]
   useEffect(() => {
     mostrardados();
   }, [])
 
 
   function mostrardados() {
-    setBanco(JSON.parse(localStorage.getItem("cd-produto") || "[]"));
-  
+    //setBanco(JSON.parse(localStorage.getItem("cd-produto") || "[]"));
+    api.get('/produto')
+
+      .then(res => {
+        console.log(res.data.produtos)
+        setBanco(res.data.produtos)
+      })
+
+
   }
 
   const apagar = (id) => {
@@ -38,12 +41,24 @@ export default function Listaproduto() {
       message: 'Deseja realmente excluir esse produto?',
       buttons: [
         {
+
           label: 'Sim',
           onClick: () => {
-            let dadosnovos = banco.filter(item => item.id !== id);
-            localStorage.setItem("cd-produto", JSON.stringify(dadosnovos));
-            setBanco(dadosnovos); // Atualiza o estado com os dados filtrados
-            alert(`Você apagou o produto id:${id}`);
+
+            //let dadosnovos = banco.filter(item => item.id !== id);
+            //localStorage.setItem("cd-produto", JSON.stringify(dadosnovos));
+            //setBanco(dadosnovos); // Atualiza o estado com os dados filtrados
+            api.delete(`/produto/${id}`)
+              .then(res => {
+                if (res.status == 200) {
+                  alert(`Você apagou o produto id:${id}`);
+                  mostrardados();
+                } else {
+                  alert("vish  deu B.O no servidor")
+                }
+
+                
+              })
           }
 
         },
