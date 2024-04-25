@@ -31,7 +31,7 @@ export default function Editarprodutos() {
     mostrardados(id);
 
   }, [])
-  async function mostrardados(idu) {
+  async function mostrardados(id) {
     api.get(`/produto/${id}`).then((res)=>{
       setStatus(res.data.produto[0].status);
       setDescricao(res.data.produto[0].descricao);

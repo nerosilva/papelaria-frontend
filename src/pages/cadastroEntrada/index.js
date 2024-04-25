@@ -14,7 +14,7 @@ export default function CadastroEntrada() {
   const [quantidade, setQuantidade] = useState("");
   const [valor_unitario, setValor_Unitario] = useState("");
   const [data_entrada, setData_Entrada] = useState("");
-  const [produto, setProduto] =useState([]);
+  const [produto, setProduto] = useState([]);
 
 
   const Entrada = {
@@ -33,13 +33,12 @@ export default function CadastroEntrada() {
     valor_unitario
 
   }
-  useEffect(()=>{
+  useEffect(() => {
     listarprodutos();
-  },[])
+  }, [])
 
-  function listarprodutos()
-  {
-    api.get('/produto').then((res)=>{
+  function listarprodutos() {
+    api.get('/produto').then((res) => {
       setProduto(res.data.produtos)
     });
   }
@@ -60,14 +59,14 @@ export default function CadastroEntrada() {
         valor_unitario: produtoExistente.valor_unitario = valor
       }
       dadosnovos.push(updateestoque);
-      localStorage.setItem("cd-estoques", JSON.stringify(dadosnovos));
+      //localStorage.setItem("cd-estoques", JSON.stringify(dadosnovos));
     } else {
 
       estoque.push(dadosestoque);
     }
 
     // Atualizar o localStorage com os novos dados do estoque
-    localStorage.setItem("cd-estoques", JSON.stringify(estoque));
+    // localStorage.setItem("cd-estoques", JSON.stringify(estoque));
   }
   function salvardados(e) {
     e.preventDefault();
@@ -118,16 +117,16 @@ export default function CadastroEntrada() {
         <div className='form-container'>
           <form className='form-cadastro' onSubmit={salvardados} >
 
-          <select value={id_produto} onChange={e=>setId_produto(e.target.value)}  >
-                <option>Selecione um produto</option>
-                {
-                  produto.map((linha)=>{
-                    return(
-                      <option value={linha.id}>{linha.descricao}</option>
-                    )
-                  })
-                }
-              </select>
+            <select value={id_produto} onChange={e => setId_produto(e.target.value)}  >
+              <option>Selecione um produto</option>
+              {
+                produto.map((linha) => {
+                  return (
+                    <option value={linha.id}>{linha.descricao}</option>
+                  )
+                })
+              }
+            </select>
 
             <input type='text'
               value={id_produto} onChange={e => setId_produto(e.target.value)} placeholder="Digite o id do produto" />
@@ -155,5 +154,3 @@ export default function CadastroEntrada() {
     </div>
   )
 }
-
-

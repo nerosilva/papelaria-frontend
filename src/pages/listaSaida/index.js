@@ -28,6 +28,7 @@ const navigate=useNavigate();
     function mostrardados()
     {
      api.get("/saida").then((res)=>{
+      console.log(res.data.produtos)
         setBanco(res.data.produtos)
      })
     }

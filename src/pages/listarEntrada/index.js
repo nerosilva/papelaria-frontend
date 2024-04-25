@@ -25,8 +25,8 @@ export default function Listarentrada() {
     api.get('/entrada')
     .then(res => {
         console.log("Resposta da API:", res.data);
-        console.log("Entradas:", res.data.entradas);
-        setBanco(res.data.entradas);
+        console.log("Entradas:", res.data.entrada);
+        setBanco(res.data.entrada);
     })
     .catch(error => {
         console.error("Erro ao buscar entradas:", error);
@@ -41,8 +41,8 @@ function formatarData(data){
 
   const apagar = (id) => {
     confirmAlert({
-      title: 'Excluir Entrada',
-      message: 'Deseja realmente excluir essa Entrada?',
+      title: 'Excluir Produto',
+      message: 'Deseja realmente excluir essa Produto?',
       buttons: [
         {
           label: 'Sim',
@@ -67,7 +67,7 @@ function formatarData(data){
             alert("vish  deu B.O no servidor")
            })
            
-            
+  
           }
 
         },

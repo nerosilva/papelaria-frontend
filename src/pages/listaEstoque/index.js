@@ -30,7 +30,7 @@ const navigate=useNavigate();
     {
      api.get("/estoque")
      .then((res)=>{
-      setBanco(res.data.estoques);
+      setBanco(res.data.estoque);
      })
     }
     function mostrarnome(idproduto){
@@ -54,10 +54,12 @@ const navigate=useNavigate();
           {
             label: 'Sim',
             onClick: () => {
-              let dadosnovos = banco.filter(item => item.id !== id);
-              //localStorage.setItem("cd-estoques", JSON.stringify(dadosnovos));
-              setBanco(dadosnovos); // Atualiza o estado com os dados filtrados
-              alert(`Você apagou o Estoque id:${id}`);
+              api.get(`/estoque/${id}`)
+              .then((res)=>{
+               if(res.status===200){
+                alert(res.data.mensagem)
+               }
+              })
             }
             
           },
