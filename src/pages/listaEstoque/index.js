@@ -87,10 +87,11 @@ const navigate=useNavigate();
           
            <tr>
                 <th>Id</th>
+                <th>Id_Produto</th>
                 <th>Produto</th>
                 <th>Quantidade</th>
                 <th>Valor Unitário</th>
-                <th></th>
+                
                 <th></th>
             </tr>
             {
@@ -99,23 +100,11 @@ const navigate=useNavigate();
                   <tr key={linha.toString()}>
                     <td>{linha.id}</td>    
                     <td>{(linha.id_produto)}</td>   
-                    <td>{(linha.descricao)}</td>   
+                    <td>{(linha.produto)}</td>   
                     <td>{linha.quantidade}</td>    
                     <td>{(linha.valor_unitario)}</td>    
          
-                    <td className='botoes'> 
-                    <Link to={`/editarproduto/${linha.id}`}>
-                      <FiEdit size={18} color='#3a5795'  /> 
-                    </Link> 
-                    </td>    
-                    <td className='botoes'> 
-                          <FiTrash 
-                          size={18} 
-                          color='red'
-                          onClick={(e)=>apagar(linha.id)} 
-                          /> 
-                    </td>    
-                    
+        
                   </tr>  
                 )
                }) 

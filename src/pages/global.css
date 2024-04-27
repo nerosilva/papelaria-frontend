@@ -3,7 +3,13 @@
     padding: 0;
     margin: 0;
 }
+.menu1 {
+    color: #0056b3;
+    text-decoration: none;
+    list-style: none;
 
+
+}
 .dashboard-container {
     background-color: #0056b3;
     height: 100vb;
@@ -19,6 +25,7 @@
 
     width: 20%;
     background-color: #ffff;
+    
 }
 
 .Principal {

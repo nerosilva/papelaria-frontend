@@ -5,7 +5,6 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; //
 import './styles.css';
 
-
 export default function Head({title}){
  const navigate = useNavigate();
    function retornar(){
@@ -32,7 +31,6 @@ export default function Head({title}){
       });
    
        };
-
 
    return(
     <div className="head">

@@ -45,7 +45,7 @@ export default function Logon() {
 
       <section className="form">
 
-        <h1>Faça seu login</h1>
+        <h1>Faça seu Login</h1>
         <form onSubmit={logar}>
 
           <input placeholder="Email"
@@ -59,8 +59,7 @@ export default function Logon() {
           />
 
           <button type="submit">Entrar</button>
-          <a href="#">Novo Cadastro</a>
-
+          
         </form>
 
       </section>

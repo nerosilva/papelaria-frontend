@@ -108,50 +108,50 @@ function formatarData(data){
 
 
       <div className='menu'>
-        <h1> menu </h1>
+        
         <Menu />
       </div>
-      <div className='principal'>
-        <Head title="Listar de Entrada" />
+      <div className='Principal'>
+      <Head title='listar Entrada' />
+      <Link to="/cadastrentrada" className='btn-novo'>Novo Cadastro</Link>
+      <table className="table">
+        <tr>
 
-        <Link to="/cadastroentrada" className='btn-novo'>Novo Cadastro</Link>
+                <th>Id</th>
+                <th>Id Produto</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Valor Unitário</th>
+                <th>Data Saida</th>
+                <th></th>
+                
+            </tr>
+            {
+               banco.map((linha)=>{
+                return(
+                  <tr key={linha.toString()}>
+                    <td>{linha.id}</td>    
+                    <td>{linha.id_produto}</td>   
+                    <td>{linha.descricao}</td>   
+                    <td>{linha.quantidade}</td>    
+                    <td>{linha.valor_unitario}</td>    
+                    <td>{linha.data_saida}</td>    
+        
+                    <td className='botoes'> 
+                          <FiTrash 
+                          size={18} 
+                          color='red'
+                          onClick={(e)=>apagar(linha.id)} 
+                          /> 
+                    </td>    
+                    
+                  </tr>  
+                )
+               }) 
+            }
 
-        <table className="table">
-          <tr>
-            <th>Id</th>
-            <th>ID_PRODUTO</th>
-            <th>PRODUTO</th>
-            <th>Quantidade</th>
-            <th>valor_UNITARIO</th>
-            <th>DATA_ENTRADA</th>
-            <th></th>
-            <th></th>
-          </tr>
-          {
-            banco.map((linha) => {
-              return (
-                <tr key={linha.toString()}>
-                  <td>{linha.id}</td>
-                  <td>{linha.id_produto}</td>
-                  <td>{linha.descricao}</td>
-                  <td>{linha.quantidade}</td>
-                  <td>{linha.valor_unitario}</td>
-                  <td>{formatarData(linha.data_entrada)}</td>
-
-                  <td className='botoes'>
-                    <FiTrash
-                      size={18}
-                      color='red'
-                      onClick={(e) => apagar(linha.id)}
-                    />
-                  </td>
-
-                </tr>
-              )
-            })
-          }
         </table>
-      </div>
+        </div>
     </div >
 
   )

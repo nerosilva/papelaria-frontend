@@ -48,7 +48,17 @@ const navigate=useNavigate();
               let dadosnovos = banco.filter(item => item.id !== id);
               //localStorage.setItem("cd-saidas", JSON.stringify(dadosnovos));
               //setBanco(dadosnovos); // Atualiza o estado com os dados filtrados
-              alert(`Você apagou a saida id:${id}`);
+              api.delete(`/saida/${id}`)
+              .then(res => {
+                if (res.status == 200) {
+                  alert(`Você apagou  saida id:${id}`);  
+                      mostrardados();
+                        } else {
+                  alert("houve um problemano servidor")
+                }
+              })
+
+             
             }
             
           },
@@ -76,12 +86,13 @@ const navigate=useNavigate();
         <tr>
 
                 <th>Id</th>
-                <th>Id PRODUTO</th>
+                <th>Id Produto</th>
                 <th>Produto</th>
                 <th>Quantidade</th>
                 <th>Valor Unitário</th>
+                <th>Data Saida</th>
                 <th></th>
-                <th></th>
+                
             </tr>
             {
                banco.map((linha)=>{
@@ -92,12 +103,8 @@ const navigate=useNavigate();
                     <td>{linha.descricao}</td>   
                     <td>{linha.quantidade}</td>    
                     <td>{linha.valor_unitario}</td>    
-         
-                    <td className='botoes'> 
-                    <Link to={`/editarsaida/${linha.id}`}>
-                      <FiEdit size={18} color='#3a5795'  /> 
-                    </Link> 
-                    </td>    
+                    <td>{linha.data_saida}</td>    
+        
                     <td className='botoes'> 
                           <FiTrash 
                           size={18} 

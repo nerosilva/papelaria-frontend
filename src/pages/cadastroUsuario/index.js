@@ -30,13 +30,20 @@ export default function Cadastrousuario() {
 
         e.preventDefault();
         // console.log(usuario)
+        let i =0
 
-        if (nome == "")
-            alert("preencha o campo nome")
-        else if (email == "")
-            alert("preencha o campo email")
-        else if (senha == "")
+        if (nome == ""){
+            i++;
+        }else if (email == ""){
+            i++;
+
+        }else if (senha == ""){
+            i++;
+        }
+        if(i>0){
+            
             alert("preenha o campo senha")
+        }
         else {
 
             //const banco = JSON.parse(localStorage.getItem("cd-usuarios") || "[]");

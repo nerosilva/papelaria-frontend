@@ -46,9 +46,10 @@ export default function Editarusuario() {
     api.get(`/usuario/${idu}`)
       .then(res => {
         if (res.status === 200) {
+          console.log(nome)
           setNome(res.data.usuario[0].nome);
           setEmail(res.data.usuario[0].email);
-          setSenha(res.data.usuario[0].senha);
+          
         }
       })
 
