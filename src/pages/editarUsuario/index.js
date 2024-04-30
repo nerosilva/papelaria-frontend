@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 import '../../pages/global.css';
 import Menu from '../../componentes/menu';
-import { FiFilePlus } from "react-icons/fi";
+import { FiFilePlus } from "react-icons/fi"; // Parece não ser usado, considere remover se não for necessário.
 import { MdCancel } from "react-icons/md";
 import { FaSave } from "react-icons/fa";
 import { useNavigate, useParams } from 'react-router-dom';
@@ -15,80 +14,47 @@ export default function Editarusuario() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [banco, setBanco] = useState([]);
-  const [status, setStatus] = useState(0)
 
-
-
-  const usuario = {
-    id,
-    nome,
-    email,
-    senha
-  }
   useEffect(() => {
-
-    mostrardados(id);
-
-  }, [])
+    if (id) {
+      mostrardados(id);
+    }
+  }, [id]);
 
   async function mostrardados(idu) {
-    //     let listaUser = JSON.parse(localStorage.getItem("cd-usuarios"));
-    //     listaUser.
-    //     filter(value => value.id == idu).
-    //     map(value => {
-    //     setNome(value.nome);
-    //     setEmail(value.email);
-    //     setSenha(value.senha);
-
-    //   })
-
     api.get(`/usuario/${idu}`)
       .then(res => {
-        if (res.status === 200) {
-          console.log(nome)
+        if (res.status === 200 && res.data.usuario && res.data.usuario.length > 0) {
           setNome(res.data.usuario[0].nome);
           setEmail(res.data.usuario[0].email);
-          
+          setSenha(res.data.usuario[0].senha);
         }
       })
-
+      .catch(err => console.error("Falha ao buscar dados do usuário", err));
   }
+
   function salvardados(e) {
     e.preventDefault();
-
-    let i = 0;
-    if (nome == "")
-      i++;
-    else if (email == "")
-      i++;
-    else if (senha == "")
-      i++;
-    if (i == 0) {
-
-      //const banco = JSON.parse(localStorage.getItem("cd-usuarios") || "[]");
-      //banco.push(usuario);
-      //localStorage.setItem("cd-usuarios", JSON.stringify(banco));
-      //alert("Usuário salvo com sucesso");
-
-      api.put('/usuario', usuario,
-        { headers: { "Content-Type": "application/json" } })
-        .then(function (response) {
-          console.log(response.data)
-          alert(response.data.mensagem);
-          navigate('/listausuario');
-        })
-    
-    } else {
-      alert("Verifique! Há campos vazios!")
+    if (!nome || !email || !senha) {
+      alert("Verifique! Há campos vazios!");
+      return;
     }
+
+    api.put('/usuario', { id, nome, email, senha },
+      { headers: { "Content-Type": "application/json" } })
+      .then(function (response) {
+        alert(response.data.mensagem);
+        navigate('/listausuario');
+      })
+      .catch(err => {
+        console.error("Falha ao salvar os dados do usuário", err);
+        alert("Erro ao salvar os dados!");
+      });
   }
 
   return (
     <div className="dashboard-container">
-
       <div className='menu'>
-
         <Menu />
       </div>
       <div className='Principal'>
@@ -118,15 +84,14 @@ export default function Editarusuario() {
                 <FaSave />
                 Salvar
               </button>
-              <button className='btn-cancel'>
+              <button type="button" className='btn-cancel' onClick={() => navigate('/listausuario')}>
                 <MdCancel />
-                Cancelar</button>
+                Cancelar
+              </button>
             </div>
           </form>
-
         </div>
       </div>
     </div>
-
-  )
+  );
 }

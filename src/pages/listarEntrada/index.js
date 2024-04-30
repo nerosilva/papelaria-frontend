@@ -113,7 +113,7 @@ function formatarData(data){
       </div>
       <div className='Principal'>
       <Head title='listar Entrada' />
-      <Link to="/cadastrentrada" className='btn-novo'>Novo Cadastro</Link>
+      <Link to="/cadastroentrada" className='btn-novo'>Novo Cadastro</Link>
       <table className="table">
         <tr>
 

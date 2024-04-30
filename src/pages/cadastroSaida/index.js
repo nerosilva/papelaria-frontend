@@ -53,6 +53,7 @@ export default function CadastroSaida() {
         <Head title="Cadastro de Saída" />
         <div className="form-container">
           <form className="form-cadastro" onSubmit={handleSubmit}>
+            
             <select value={idProduto} onChange={(e) => setIdProduto(e.target.value)}>
               <option value="">Selecione um produto</option>
               {produtos.map((produto) => (

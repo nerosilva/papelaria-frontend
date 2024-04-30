@@ -11,72 +11,56 @@ import api from '../../server/api';
 export default function Editarprodutos() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const[status, setStatus]= useState("");
-  const[descricao, setDescricao]= useState("");
-  const[estoque_minimo, setEstoque_minimo]= useState("");
-  const[estoque_maximo, setEstoque_maximo]= useState("");
-  const produto={
-    id,
-    status,
-    descricao,
-    estoque_minimo,
-    estoque_maximo
-  };
+  const [status, setStatus] = useState("");
+  const [descricao, setDescricao] = useState("");
+  const [estoque_minimo, setEstoque_minimo] = useState("");
+  const [estoque_maximo, setEstoque_maximo] = useState("");
 
   useEffect(() => {
     mostrardados(id);
   }, [id]);
 
   async function mostrardados(id) {
-    api.get(`/produto/${id}`)
-      .then(res => {
-        if (res.status === 200) {
-          setStatus(res.data.produto[0].status);
-          setDescricao(res.data.produto[0].descricao);
-          setEstoque_minimo(res.data.produto[0].estoque_minimo);
-          setEstoque_maximo(res.data.produto[0].estoque_maximo);
-         
+    try {
+      const response = await api.get(`/produto/${id}`);
+      if (response.status === 200) {
+        const produtoData = response.data.produto[0];
+        if (produtoData) {
+          setStatus(produtoData.status || "");
+          setDescricao(produtoData.descricao || "");
+          setEstoque_minimo(produtoData.estoque_minimo || "");
+          setEstoque_maximo(produtoData.estoque_maximo || "");
+        } else {
+          console.error('Produto não encontrado');
         }
-      })
-    // try {
-    //   const response = await api.get(`/produto/${id}`);
-    //   const produtoData = response.data.produto[0];
-    //   if (produtoData) {
-    //     setProduto(produtoData);
-    //   } else {
-    //     console.error('Produto não encontrado');
-    //   }
-    // } catch (error) {
-    //   console.error('Erro ao obter dados do produto:', error);
-    // }
+      } else {
+        console.error('Erro ao obter dados do produto:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Erro ao obter dados do produto:', error);
+    }
   }
 
   function salvardados(e) {
     e.preventDefault();
-    api.put('/produto', produto,
-        { headers: { "Content-Type": "application/json" } })
-        .then(function (response) {
-          console.log(response.data)
-          alert(response.data.mensagem);
-          navigate('/listaproduto');
-        })
+    const produto = {
+      id,
+      status,
+      descricao,
+      estoque_minimo,
+      estoque_maximo
+    };
 
-    // const camposVazios = Object.values(produto).filter(valor => valor === '').length;
-    // if (camposVazios === 0) {
-    //   api.put("/produto", produto).then((res) => {
-    //     if (res.status === 200) {
-    //       alert(res.data.mensagem);
-    //       navigate('/listaproduto');
-    //     } else if (res.status === 500) {
-    //       alert(res.data.error);
-    //     }
-    //   });
-    // } else {
-    //   alert("Verifique! Há campos vazios!");
-    // }
+    api.put('/produto', produto, { headers: { "Content-Type": "application/json" } })
+      .then(function (response) {
+        console.log(response.data)
+        alert(response.data.mensagem);
+        navigate('/listaproduto');
+      })
+      .catch(error => {
+        console.error('Erro ao salvar dados do produto:', error);
+      });
   }
-
-  
 
   return (
     <div className="dashboard-container">
@@ -91,28 +75,28 @@ export default function Editarprodutos() {
               type='text'
               name="status"
               value={status}
-              onChange={e =>setStatus(e.target.value)}
+              onChange={e => setStatus(e.target.value)}
               placeholder='Digite o nome do produto'
             />
             <input
               type='text'
               name="descricao"
               value={descricao}
-              onChange={e =>setDescricao(e.target.value)}
+              onChange={e => setDescricao(e.target.value)}
               placeholder='Digite a descrição'
             />
             <input
               type='number'
               name="estoque_minimo"
               value={estoque_minimo}
-              onChange={e =>setEstoque_minimo(e.target.value)}
+              onChange={e => setEstoque_minimo(e.target.value)}
               placeholder='Digite o estoque mínimo'
             />
             <input
               type='number'
               name="estoque_maximo"
               value={estoque_maximo}
-              onChange={e =>setEstoque_maximo(e.target.value)}
+              onChange={e => setEstoque_maximo(e.target.value)}
               placeholder='Digite o estoque máximo'
             />
             <div className='acao'>
