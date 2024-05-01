@@ -10,10 +10,11 @@ import api from '../../server/api';
 
 export default function Cadastroproduto() {
     const navigate = useNavigate();
+
     const [status, setStatus] = useState("");
     const [descricao, setDescricao] = useState("");
-    const [estoque_minimo, setEstoque_maximo] = useState(0);
-    const [estoque_maximo, setEstoque_minimo] = useState(10);
+    const [estoque_minimo, setEstoque_maximo] = useState();
+    const [estoque_maximo, setEstoque_minimo] = useState();
 
     const produto = {
         id: Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9 * Math.pow(10, 12)).toString(36),
@@ -40,15 +41,15 @@ export default function Cadastroproduto() {
             // localStorage.setItem("cd-produto", JSON.stringify(banco));
             // alert("Produto salvo com sucesso");
             api.post('/produto', produto,
-            { headers: { "Content-Type": "application/json" } })
-            .then(function (response) {
-                console.log(response.data)
-                alert(response.data.mensagem);
-                navigate('/listaproduto');
-            }
+                { headers: { "Content-Type": "application/json" } })
+                .then(function (response) {
+                    console.log(response.data)
+                    alert(response.data.mensagem);
+                    navigate('/listaproduto');
+                }
 
-            )
-            
+                )
+
         } else {
             alert("Verifique! Há campos vazios!")
         }

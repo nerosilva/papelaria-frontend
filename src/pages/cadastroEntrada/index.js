@@ -44,30 +44,30 @@ export default function CadastroEntrada() {
   }
 
 
-  function alterarEstoque(idproduto, quantidade, valor) {
-    const estoque = JSON.parse(localStorage.getItem("cd-estoques") || "[]");
+  //function alterarEstoque(idproduto, quantidade, valor) {
+    //const estoque = JSON.parse(localStorage.getItem("cd-estoques") || "[]");
 
-    const produtoExistente = estoque.find(item => item.id_produto === idproduto);
+    //const produtoExistente = estoque.find(item => item.id_produto === idproduto);
 
-    if (produtoExistente) {
+    //if (produtoExistente) {
 
-      let dadosnovos = estoque.filter(item => item.id_produto !== idproduto);
-      const updateestoque = {
-        id: produtoExistente.id,
-        id_produto: produtoExistente.id_produto,
-        qtde: produtoExistente.qtde + quantidade,
-        valor_unitario: produtoExistente.valor_unitario = valor
-      }
-      dadosnovos.push(updateestoque);
+      //let dadosnovos = estoque.filter(item => item.id_produto !== idproduto);
+      //const updateestoque = {
+       // id: produtoExistente.id,
+       // id_produto: produtoExistente.id_produto,
+        //qtde: produtoExistente.qtde + quantidade,
+        //valor_unitario: produtoExistente.valor_unitario = valor
+     // }
+     // dadosnovos.push(updateestoque);
       //localStorage.setItem("cd-estoques", JSON.stringify(dadosnovos));
-    } else {
+   // } else {
 
-      estoque.push(dadosestoque);
-    }
+   //   estoque.push(dadosestoque);
+   // }
 
     // Atualizar o localStorage com os novos dados do estoque
     // localStorage.setItem("cd-estoques", JSON.stringify(estoque));
-  }
+  //}
   function salvardados(e) {
     e.preventDefault();
     let i = 0;
@@ -108,7 +108,7 @@ export default function CadastroEntrada() {
     <div className="dashboard-container">
 
       <div className='menu'>
-        <h1>  menu</h1>
+        
         <Menu />
 
       </div>

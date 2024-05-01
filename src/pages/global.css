@@ -1,8 +1,8 @@
 * {
-
     padding: 0;
     margin: 0;
 }
+
 .menu1 {
     color: #0056b3;
     text-decoration: none;
@@ -10,6 +10,7 @@
 
 
 }
+
 .dashboard-container {
     background-color: #0056b3;
     height: 100vb;
@@ -25,7 +26,7 @@
 
     width: 20%;
     background-color: #ffff;
-    
+
 }
 
 .Principal {
@@ -69,33 +70,38 @@ td {
     display: flex;
     width: 150px;
 }
-.btn-novo:hover{
+
+.btn-novo:hover {
     background-color: rgb(42, 195, 42);
     cursor: pointer;
     margin-left: 10px;
-    
+
 }
-.form-cadastro input{
-   width: 100%;
-   height: 30px;
-   color: #333;
-   border: 1px solid #dcdce6;
-   border-radius: 8px;
+
+.form-cadastro input {
+    width: 100%;
+    height: 30px;
+    color: #333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
 }
-.form-cadastro select{
+
+.form-cadastro select {
     width: 100%;
     height: 40px;
     color: #333;
     border: 1px solid #dcdce6;
     border-radius: 8px;
-    padding: 5px;  
+    padding: 5px;
 }
-.form-cadastro input:focus{
+
+.form-cadastro input:focus {
     box-shadow: 0 0 0 0;
     border: 1px solid #dcdce6;
     outline: 0;
 }
-.btn-save{
+
+.btn-save {
     padding: 10px;
     background-color: #0056b3;
     color: #f8f8f8;
@@ -105,7 +111,8 @@ td {
     width: 120px;
 
 }
-.btn-cancel{
+
+.btn-cancel {
     padding: 10px;
     background-color: #b30600;
     color: #f8f8f8;
@@ -115,26 +122,26 @@ td {
     width: 120px;
 
 }
-.acao{
+
+.acao {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    justify-content:  space-around;
+    justify-content: space-around;
 }
-.form-container{
-    
+
+.form-container {
+
     display: flex;
     align-items: center;
     height: 80vh;
 }
-.form-cadastro{
-   background-color: rgb(255, 255,255,0.8);
-   border: 1px solid rgb(0, 0, 0, 0.2);
-   box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
-   padding: 20px;
-   border-radius: 5px;
-   align-items: center;
+
+.form-cadastro {
+    background-color: rgb(255, 255, 255, 0.8);
+    border: 1px solid rgb(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 5px;
+    align-items: center;
 }
-
-
-
