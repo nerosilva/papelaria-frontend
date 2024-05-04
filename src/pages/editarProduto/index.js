@@ -23,8 +23,10 @@ export default function Editarprodutos() {
   async function mostrardados(id) {
     try {
       const response = await api.get(`/produto/${id}`);
+      
       if (response.status === 200) {
-        const produtoData = response.data.produto[0];
+        const produtoData = response.data.produto;
+        console.log(produtoData)
         if (produtoData) {
           setStatus(produtoData.status || "");
           setDescricao(produtoData.descricao || "");
@@ -67,10 +69,10 @@ export default function Editarprodutos() {
       <div className='menu'>
         <Menu />
       </div>
-      <div className='principal'>
-        <Head title="Editar Produto" />
-        <div className='form-container'>
-          <form className='form-cadastro' onSubmit={salvardados}>
+      <div className='Principal'>
+                <Head title="Editar Produto" />
+                <div className='form-container'>
+                    <form className='form-cadastro' onSubmit={salvardados}>
             <input
               type='text'
               name="status"

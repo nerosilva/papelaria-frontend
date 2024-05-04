@@ -112,10 +112,10 @@ export default function CadastroEntrada() {
         <Menu />
 
       </div>
-      <div className='principal'>
-        <Head title="Cadastro de Entrada" />
-        <div className='form-container'>
-          <form className='form-cadastro' onSubmit={salvardados} >
+      <div className='Principal'>
+                <Head title="cadastro de Entrada" />
+                <div className='form-container'>
+                    <form className='form-cadastro' onSubmit={salvardados}>
 
             <select value={id_produto} onChange={e => setId_produto(e.target.value)}  >
               <option>Selecione um produto</option>

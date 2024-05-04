@@ -81,13 +81,13 @@ export default function Cadastroproduto() {
                             type='number'
                             value={estoque_minimo}
                             onChange={e => setEstoque_maximo(e.target.value)}
-                            placeholder='Digite a senha' />
+                            placeholder='Digite o Estoque maximo' />
 
                         <input
                             type='number'
                             value={estoque_maximo}
                             onChange={e => setEstoque_minimo(e.target.value)}
-                            placeholder='Digite a senha' />
+                            placeholder='Digite o Estoque minimo' />
 
                         <div className='acao'>
                             <button className='btn-save'>

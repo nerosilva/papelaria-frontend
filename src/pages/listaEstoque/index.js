@@ -34,16 +34,16 @@ const navigate=useNavigate();
      })
     }
     function mostrarnome(idproduto){
-      let nome= "";
-       const listarproduto = JSON.parse(localStorage.getItem("cd-produto") || "[]");
-       listarproduto.
-                    filter(value => value.id ==idproduto).
-                    map(value => {
+    //  let nome= "";
+      // const listarproduto = JSON.parse(localStorage.getItem("cd-produto") || "[]");
+      // listarproduto.
+                 //   filter(value => value.id ==idproduto).
+                 //   map(value => {
                      
-                    nome=value.descricao;
+                  //  nome=value.descricao;
                         
-                  })
-            return nome;
+                //  })
+          //  return nome;
             
       }
      const  apagar = (id) => {
@@ -82,7 +82,7 @@ const navigate=useNavigate();
       </div>
       <div className='Principal'>
         <Head title='lista de Estoque' />
-        <Link to="/cadastroproduto" className='btn-novo'>Novo Cadastro</Link>
+        <Link to="/cadastroproduto"></Link>
         <table className="table">
           
            <tr>
@@ -100,7 +100,7 @@ const navigate=useNavigate();
                   <tr key={linha.toString()}>
                     <td>{linha.id}</td>    
                     <td>{(linha.id_produto)}</td>   
-                    <td>{(linha.produto)}</td>   
+                    <td>{(linha.descricao)}</td>   
                     <td>{linha.quantidade}</td>    
                     <td>{(linha.valor_unitario)}</td>    
          

@@ -100,8 +100,8 @@ export default function Listaproduto() {
                   <td>{pro.id}</td>
                   <td>{pro.status}</td>
                   <td>{pro.descricao}</td>
-                  <td>{pro.estoque_maximo}</td>
                   <td>{pro.estoque_minimo}</td>
+                  <td>{pro.estoque_maximo}</td>
                   <td className='botoes'>
                     <Link to={`/editarproduto/${pro.id}`}>
                       <FiEdit size={18} color='#3a5795' />

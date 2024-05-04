@@ -24,13 +24,14 @@ export default function Editarusuario() {
   async function mostrardados(idu) {
     api.get(`/usuario/${idu}`)
       .then(res => {
-        if (res.status === 200 && res.data.usuario && res.data.usuario.length > 0) {
-          setNome(res.data.usuario[0].nome);
-          setEmail(res.data.usuario[0].email);
-          setSenha(res.data.usuario[0].senha);
-        }
-      })
-      .catch(err => console.error("Falha ao buscar dados do usuário", err));
+        console.log(res.data)
+        //if (res.status === 200 && res.data.usuario && res.data.usuario.length > 0) {
+          setNome(res.data.usuario.nome);
+          setEmail(res.data.usuario.email);
+          setSenha(res.data.usuario.senha);
+        })
+
+    //  .catch(err => console.error("Falha ao buscar dados do usuário", err));
   }
 
   function salvardados(e) {

@@ -17,7 +17,6 @@ export default function CadastroSaida() { // Corrigindo o nome da função para 
     const [quantidade, setQuantidade] = useState("");
     const [valor_unitario, setValor_Unitario] = useState("");
     const [data_saida, setData_Saida] = useState("");
-
     const [qtd_estoque, setQtd_estoque] = useState(0);
 
     const saida = {
@@ -77,10 +76,11 @@ export default function CadastroSaida() { // Corrigindo o nome da função para 
                 <h1></h1>
                 <Menu />
             </div>
-            <div className='principal'>
-                <Head title="Cadastro de Saída" />
+            <div className='Principal'>
+                <Head title="cadastro de Saida" />
                 <div className='form-container'>
                     <form className='form-cadastro' onSubmit={salvarDados}>
+
                         <input type='text' value={id_produto} onChange={e => setId_produto(e.target.value)} placeholder="Digite o ID do produto" />
                         <select value={id_produto} onChange={e => setId_produto(e.target.value)}  >
                             <option value=""> Selecione um produto</option>
