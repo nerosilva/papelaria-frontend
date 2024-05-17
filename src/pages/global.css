@@ -30,14 +30,12 @@
 }
 
 .Principal {
-    width: 80%;
+    width: 82%;
     background-color: #ffff;
-    background-image: url("../assets/img/2023.jpg");
+    background-image: url("../assets/img/Card-1080x1080esttoque_digital-1024x571.png");
     background-repeat: no-repeat, repeat;
     background-size: cover;
-
-
-    padding: 5px;
+    padding: 2px;
 }
 
 table {
@@ -103,7 +101,7 @@ td {
 
 .btn-save {
     padding: 10px;
-    background-color: #0056b3;
+    background-color:#0056b3;
     color: #f8f8f8;
     border-radius: 5px;
     border: solid 0.5px #adb9d3;

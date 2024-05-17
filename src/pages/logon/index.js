@@ -45,7 +45,7 @@ export default function Logon() {
 
       <section className="form">
 
-        <h1>Nero_Silva_Dev</h1>
+        <h1>Digital_Works</h1>
         <form onSubmit={logar}>
 
           <input placeholder="Email"

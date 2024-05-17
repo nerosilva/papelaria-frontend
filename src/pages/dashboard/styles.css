@@ -1,4 +1,4 @@
-*{
+* {
 
     padding: 0;
     margin: 0;
@@ -6,24 +6,25 @@
 
 .dashboard-container {
     background-color: #0056b3;
-    height: 100vb; display: flex;
+    height: 100vb;
+    display: flex;
     flex-direction: row;
-    width: 95%;
+    width: 100%;
     margin: auto;
 
 
 }
-.menu{
+
+.menu {
 
     width: 20%;
-    background-color: #ffff;
-margin: 5px;
+    background-color: #0b0a0a;
+    margin: 5px;
 
 }
-.Principal{
+
+.Principal {
     width: 80%;
     background-color: #ffff;
     margin: 5px;
 }
-
-

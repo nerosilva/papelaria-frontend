@@ -3,10 +3,33 @@ nav {
     flex-direction: column;
     margin-top: 20px;
 }
+.link2 {
+    color: #f7f7fc; /* Cor do texto do link */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-size: 17px; /* Tamanho da fonte */
+    padding: 8px 12px; /* Espaçamento interno no link */
+    display: inline-block; /* Faz o link comportar-se como um bloco, permitindo padding */
+    border-radius: 4px; /* Arredonda as bordas do link */
+    background-color: #032290; /* Cor de fundo do link */
+    transition: background-color 0.3s, color 0.3s; /* Suaviza a transição de cores */
+}
+
+.link1:hover {
+    text-decoration: none;
+    background-color: #030819;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    width: 85%;
+    margin: auto;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adicionando transição para suavizar o efeito */
+}
+
 
 .link {
     text-decoration: none;
-    background-color: #007bff;
+    background-color: #032290;
     border-radius: 5px;
     padding: 10px;
     color: white;
