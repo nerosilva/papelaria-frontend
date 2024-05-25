@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import '../../pages/global.css'
 import Menu from '../../componentes/menu'
 import { FiFilePlus } from "react-icons/fi";
@@ -8,8 +7,6 @@ import Head from '../../componentes/head';
 import { FaSave } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 import api from '../../server/api';
-
-
 
 export default function Cadastrousuario() {
     const navigate = useNavigate();
@@ -22,8 +19,6 @@ export default function Cadastrousuario() {
         nome,
         email,
         senha,
-
-
     }
 
     function salvardados(e) {
@@ -59,8 +54,6 @@ export default function Cadastrousuario() {
                 }
 
                 )
-
-          
 
         }
     }

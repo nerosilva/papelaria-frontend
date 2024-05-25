@@ -1,30 +1,89 @@
+/* Reset básico para remover padding e margem padrão dos elementos */
 * {
-
     padding: 0;
     margin: 0;
 }
 
+/* Estilização do container principal do dashboard */
 .dashboard-container {
-    background-color: #0056b3;
-    height: 100vb;
+    background-color: #ffffff; /* Cor de fundo branca */
+    height: 100vh; /* 100% da altura da viewport */
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin: auto;
-
-
+    flex-direction: row; /* Elementos em linha */
+    width: 100%; /* Largura completa */
+    margin: auto; /* Centraliza horizontalmente se necessário */
 }
 
+/* Configuração do menu lateral */
 .menu {
-
-    width: 20%;
-    background-color: #0b0a0a;
-    margin: 5px;
-
+    width: 20%; /* 20% da largura total */
+    background-color: #0b0a0a; /* Cor de fundo escura */
+    margin: 5px; /* Espaço em volta */
 }
 
+/* Configuração da área principal onde o conteúdo é exibido */
 .Principal {
-    width: 80%;
-    background-color: #ffff;
-    margin: 5px;
+    width: 80%; /* 80% da largura total */
+    background-color: #ffff; /* Cor de fundo branca */
+    margin: 5px; /* Espaço em volta */
+    display: flex;
+    flex-direction: column; /* Elementos empilhados verticalmente */
+}
+
+/* Container para imagens */
+.image-container {
+    margin: 0;
+    display: flex;
+    flex-direction: row; /* Imagens lado a lado */
+    align-items: flex-start;
+    text-align: left;
+    background-color: #ffffff;
+    height: 89vh; /* 89% da altura da viewport */
+}
+
+/* Estilo das imagens */
+.image-container img {
+    max-width: 150px; /* Largura máxima */
+    height: auto; /* Altura automática para manter a proporção */
+    border-radius: 100%; /* Borda arredondada para imagens circulares */
+    margin: 10px 150px 10px 0; /* Margens para espaçamento entre imagens */
+    cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
+    transition: transform 0.3s ease; /* Animação suave ao transformar */
+}
+
+/* Efeito de ampliação ao passar o mouse sobre as imagens */
+.image-container img:hover {
+    transform: scale(1.1); /* Ampliação de 10% */
+}
+
+/* Link do WhatsApp fixo na tela */
+.whatsapp-link {
+    position: fixed;
+    width: 60px; /* Largura do botão */
+    height: 60px; /* Altura do botão */
+    bottom: 55px; /* Posicionado na parte inferior da tela */
+    right: 27px; /* Posicionado na lateral direita da tela */
+    background-color: #04cd5f; /* Cor de fundo verde */
+    color: white; /* Texto branco */
+    text-decoration: none; /* Sem sublinhado no texto */
+    border-radius: 60%; /* Borda arredondada */
+    font-weight: bold; /* Texto em negrito */
+    display: flex;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    text-align: center;
+    transition: transform 0.5s ease; /* Animação suave ao transformar */
+}
+
+/* Efeito ao passar o mouse sobre o link do WhatsApp */
+.whatsapp-link:hover {
+    transform: translate(-1px, -1px); /* Movimento sutil ao passar o mouse */
+}
+
+/* Estilo do título principal */
+.Principal h1 {
+    text-align: center; /* Texto centralizado */
+    color: #0f15ce; /* Cor do texto azul */
+    margin: 10px 0; /* Espaçamento acima e abaixo do título */
+    padding-top: px; /* Espaço extra no topo */
 }

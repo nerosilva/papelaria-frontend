@@ -4,7 +4,7 @@
 }
 
 .menu1 {
-    color: #0056b3;
+    color: #02197d;
     text-decoration: none;
     list-style: none;
 
@@ -12,7 +12,7 @@
 }
 
 .dashboard-container {
-    background-color: #0056b3;
+    background-color: #0547d5;
     height: 100vb;
     display: flex;
     flex-direction: row;
@@ -32,7 +32,6 @@
 .Principal {
     width: 82%;
     background-color: #ffff;
-    background-image: url("../assets/img/Card-1080x1080esttoque_digital-1024x571.png");
     background-repeat: no-repeat, repeat;
     background-size: cover;
     padding: 2px;

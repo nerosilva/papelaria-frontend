@@ -13,6 +13,7 @@ export default function Menu() {
             <a className='menu1' href='/dashboard'>
                 <h1 className='menu1'>Menu</h1>
             </a>
+            <br></br>
             <nav>
                 <Link to="/listausuario" className='link'><FontAwesomeIcon icon={faUser} /> Usuário</Link>
                 <Link to="/listaproduto" className='link'><FontAwesomeIcon icon={faBox} /> Cliente</Link>
@@ -35,7 +36,7 @@ export default function Menu() {
                 <br></br>
                 <br></br>
                 <br></br>
-                <br></br>
+               
                 <br></br>
                 <Link to="/logout" className='link'><CiLogout /> Saida</Link>
             </nav>

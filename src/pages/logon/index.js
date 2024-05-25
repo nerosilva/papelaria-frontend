@@ -1,5 +1,5 @@
 import './styles.css'
-import Logo from '../../assets/img/depositphotos_80152796-stock-photo-school-supplies-in-shopping-cart.jpg'
+import Logo from '../../assets/img/Tecnologia-a-favor-da-Gestao-de-Compras-e-Estoque.jpg'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import api from '../../server/api';

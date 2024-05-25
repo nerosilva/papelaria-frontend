@@ -37,6 +37,9 @@ export default function Head({title}){
        <FaReply size={24} onClick={retornar} color='blue' />
         <h2>{title}</h2>
         <FiLogOut size={24} onClick={confirmarsaida} color='red' />
+        
     </div>
+    //background-image: url("../assets/img/a-importancia-da-gestao-de-estoque-no-comercio-eletronico.jpg");
+   // que estava na global, no .principal
    )    
 }

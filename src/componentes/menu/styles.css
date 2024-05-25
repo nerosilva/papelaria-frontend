@@ -3,6 +3,11 @@ nav {
     flex-direction: column;
     margin-top: 20px;
 }
+
+.menu1 {
+    color: #032290; /* Cor atualizada para o mesmo azul do fornecedor */
+}
+
 .link2 {
     color: #f7f7fc; /* Cor do texto do link */
     text-decoration: none; /* Remove o sublinhado do link */
@@ -25,7 +30,6 @@ nav {
     margin-bottom: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adicionando transição para suavizar o efeito */
 }
-
 
 .link {
     text-decoration: none;
