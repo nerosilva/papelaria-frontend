@@ -3,9 +3,11 @@ import { FaWhatsapp } from 'react-icons/fa';  // Importando o ícone do WhatsApp
 import Logo from '../../assets/img/images.png';
 import Menu from '../../componentes/menu';
 import { Link } from 'react-router-dom';
-import ClientImage from '../../assets/img/cliente.png';  // Import the client image
-import FornecedorImage from '../../assets/img/fornecedor.png'; // Import the fornecedor image
-import ProdutosImage  from '../../assets/img/produtos.png'; // Import the fornecedor image
+import ClientImage from '../../assets/img/cliente.png';  // Import client image
+import FornecedorImage from '../../assets/img/fornecedor.png'; // Import  fornecedor image
+import ProdutosImage from '../../assets/img/produtos.png'; // Import  produtos image
+import EntradaImage from '../../assets/img/Entrada.png'; // Import entrada image
+import EstoqueImage from '../../assets/img/Estoque.png'; // Import estoque image
 
 export default function Dashboard() {
   return (
@@ -22,12 +24,20 @@ export default function Dashboard() {
               <img src={ClientImage} alt="Client" className="client-image" /> {/* Adicionando a imagem do cliente */}
             </Link>
 
-            <Link to="/listaproduto" > 
-            <img src={FornecedorImage} alt="Fornecedor" className="fornecedor-image" />{/* Adicionando a imagem do fornecedor */}
+            <Link to="/listaproduto" >
+              <img src={FornecedorImage} alt="Fornecedor" className="fornecedor-image" />{/* Adicionando a imagem do fornecedor */}
             </Link>
 
-            <Link to="/listaproduto" > 
-            <img src={ProdutosImage} alt="produtos" className="produtos-image" />{/* Adicionando a imagem do produtos */}
+            <Link to="/listaproduto" >
+              <img src={ProdutosImage} alt="Produtos" className="produtos-image" />{/* Adicionando a imagem do produtos */}
+            </Link>
+
+            <Link to="/listarentrada">
+              <img src={EntradaImage} alt="Entrada" className="entrada-image" />{/* Adicionando a imagem do entrada */}
+            </Link>
+
+            <Link to="/listaestoque">
+              <img src={EstoqueImage} alt="Estoque" className="estoque-image" />{/* Adicionando a imagem do estoque */}
             </Link>
 
           </div>

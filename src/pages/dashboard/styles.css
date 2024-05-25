@@ -46,7 +46,7 @@
     max-width: 150px; /* Largura máxima */
     height: auto; /* Altura automática para manter a proporção */
     border-radius: 100%; /* Borda arredondada para imagens circulares */
-    margin: 10px 150px 10px 0; /* Margens para espaçamento entre imagens */
+    margin: 50px 130px 10px 0; /* Margens para espaçamento entre imagens */
     cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
     transition: transform 0.3s ease; /* Animação suave ao transformar */
 }

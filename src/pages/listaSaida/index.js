@@ -81,7 +81,7 @@ const navigate=useNavigate();
     </div>
     <div className='Principal'>
       <Head title='lista de Saida' />
-      <Link to="/cadastrosaida" className='btn-novo'>Nova Saida</Link>
+      <Link to="/cadastrosaida" className='btn-novo'></Link>
       <table className="table">
         <tr>
 

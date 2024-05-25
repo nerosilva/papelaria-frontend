@@ -1,71 +1,60 @@
-import './styles.css'
-import Logo from '../../assets/img/Tecnologia-a-favor-da-Gestao-de-Compras-e-Estoque.jpg'
-import { useNavigate } from 'react-router-dom'
+import './styles.css';
+import Logo from '../../assets/img/Tecnologia-a-favor-da-Gestao-de-Compras-e-Estoque.jpg';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import api from '../../server/api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
 export default function Logon() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState();
-  const [senha, setSenha] = useState();
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
   const logar = (e) => {
     e.preventDefault();
-    // let banco = JSON.parse(localStorage.getItem("cd-usuarios") || "[]");
-    // let dadosnovos = banco.filter(item => item.email === email && item.senha === senha);
-    // console.log(banco);
-    // if (dadosnovos.length > 0) {
-    //   navigate('/dashboard');
-    // } else {
-    //   alert("Dados incorretos!!!");
-    // }
     api.post("usuario/login", { email, senha })
       .then(res => {
-        console.log(res.status)
+        console.log(res.status);
         if (res.status === 200) {
-          alert(res.data.mensagem)
-          navigate('/dashboard')
-
+          alert(res.data.mensagem);
+          navigate('/dashboard');
+        } else if (res.status === 500) {
+          alert(res.data.mensagem);
         }
-        if (res.status === 500) {
-          alert(res.data.mensagem)
-
-
-        }
-
-      })
-  }
+      });
+  };
 
   return (
     <div className="logon-container">
-      <div className='logo'>
-        <img src={Logo} />
+      <div className="logo">
+        <img src={Logo} alt="Logo" />
       </div>
-
-
       <section className="form">
-
-        <h1>Digital_Works</h1>
         <form onSubmit={logar}>
-
-          <input placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-
-          <input placeholder="Senha" type='password'
-            value={senha}
-            onChange={e => setSenha(e.target.value)}
-          />
-
-          <button type="submit">Entrar</button>
-          
+          <div className="input-group">
+            <FontAwesomeIcon icon={faEnvelope} />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <FontAwesomeIcon icon={faLock} />
+            <input
+              type="password"
+              placeholder="Senha"
+              value={senha}
+              onChange={e => setSenha(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit">Login</button>
         </form>
-
       </section>
-
     </div>
-
-  )
-
+  );
 }
