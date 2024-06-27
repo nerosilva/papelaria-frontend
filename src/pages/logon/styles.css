@@ -15,33 +15,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Alinha no topo da tela */
+    justify-content: flex-start; /* Align to the top */
     height: 100vh;
-    background: linear-gradient(135deg, #00e5ff, #000080); /* Alterado para um gradiente de azul */
-}
-
-/* Logo */
-.logo {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px; /* Espaço extra no topo */
-    margin-bottom: 20px;
-}
-
-.logo img {
-    width: 150px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #05baca, #0303a1); /* Blue gradient background */
+    padding-top: 165px; /* Add some padding at the top */
 }
 
 /* Form section */
 .form {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px; /* Reduz o preenchimento interno */
+    background: rgba(18, 39, 197, 0.85); /* Dark semi-transparent background */
+    padding: 15px; /* Reduced padding */
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 300px; /* Reduz a largura máxima */
+    max-width: 320px; /* Reduced max-width */
     text-align: center;
 }
 
@@ -51,22 +38,27 @@ form {
     width: 100%;
 }
 
+h1 {
+    color: var(--main-color); /* Set the "Login" text color to white */
+    margin-bottom: 15px; /* Add some margin below the heading */
+}
+
 .input-group {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Reduced margin-bottom */
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 input {
     flex: 1;
-    padding: 12px 10px; /* Reduz o espaçamento vertical */
+    padding: 10px 35px; /* Reduced padding */
     border: 1px solid var(--input-border-color);
-    border-radius: 30px;
+    border-radius: 5px;
     background-color: var(--input-background-color);
     color: var(--input-text-color);
-    font-size: 14px; /* Reduz o tamanho da fonte */
-    text-align: center;
+    font-size: 14px;
 }
 
 input::placeholder {
@@ -82,27 +74,84 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: calc(100% - 20px); /* Ajusta o tamanho do botão */
-    padding: 12px 0; /* Reduz o espaçamento interno */
+    width: 100%;
+    padding: 10px; /* Reduced padding */
     border: none;
-    border-radius: 30px;
-    background-color: #3e3e3e;
+    border-radius: 5px;
+    background-color: var(--button-color);
     color: var(--main-color);
-    font-size: 14px; /* Reduz o tamanho da fonte */
+    font-size: 14px; /* Reduced font-size */
     cursor: pointer;
     transition: background-color 0.3s ease;
-    text-align: center;
-    margin-bottom: 5px; /* Reduz o espaçamento inferior */
+    margin-top: 5px; /* Reduced margin-top */
 }
 
 button:hover {
-    background-color: #3e3e3e;
+    background-color: var(--button-hover-color);
 }
 
 .input-group > svg {
-    margin-right: 10px;
+    position: absolute;
+    left: 10px;
+    color: var(--input-placeholder-color);
 }
 
 button > svg {
     margin-right: 10px;
+}
+
+.form a {
+    color: var(--main-color);
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 1px;
+    display: block;
+}
+
+.social-buttons {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Space between buttons */
+}
+
+.social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px; /* Reduced padding for smaller buttons */
+    color: white;
+    border-radius: 50%; /* Make the buttons round */
+    text-decoration: none;
+    font-size: 10px; /* Reduced font size */
+    width: 30px; /* Fixed width for smaller buttons */
+    height: 24px; /* Fixed height for smaller buttons */
+}
+
+.social-icon {
+    font-size: 12px; /* Reduced icon size */
+}
+
+.instagram-button {
+    background-color: #E1306C; /* Instagram color */
+}
+
+.instagram-button:hover {
+    background-color: #C13584; /* Darker color for hover */
+}
+
+.whatsapp-button {
+    background-color: #25D366; /* WhatsApp color */
+}
+
+.whatsapp-button:hover {
+    background-color: #1DA851; /* Darker color for hover */
+}
+
+.facebook-button {
+    background-color: #3b5998; /* Facebook color */
+}
+
+.facebook-button:hover {
+    background-color: #2d4373; /* Darker color for hover */
 }

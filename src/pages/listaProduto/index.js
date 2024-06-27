@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import Head from '../../componentes/head';
 import { useNavigate } from 'react-router-dom';
 import api from '../../server/api';
+import { FaWhatsapp } from 'react-icons/fa';  // Importando o ícone do WhatsApp
+
 
 
 
@@ -123,6 +125,16 @@ export default function Listaproduto() {
 
         </table>
       </div>
+      <div className="text-container">
+            <a
+              href="https://wa.me/55 (63)99278-0893?text=Ol%C3%A1+seja+vem+vindos"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-link"
+            >
+              <FaWhatsapp size={32} />  {/* Tamanho do ícone */}
+            </a>
+          </div>
 
     </div>
 

@@ -6,7 +6,15 @@ nav {
 
 .menu1 {
     color: #032290; /* Cor atualizada para o mesmo azul do fornecedor */
+    width: 50%; /* Define a largura desejada */
+    margin-left: auto;
+    margin-right: auto;
 }
+.link-saida {
+    margin-top: auto;
+}
+
+
 
 .link2 {
     color: #f7f7fc; /* Cor do texto do link */

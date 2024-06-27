@@ -21,24 +21,9 @@ export default function Menu() {
                 <Link to="/listaproduto" className='link'><FontAwesomeIcon icon={faBox} /> Produto</Link>
                 <Link to="/listarentrada" className='link'><FontAwesomeIcon icon={faArrowRight} /> Entrada</Link>
                 <Link to="/listaestoque" className='link'><FontAwesomeIcon icon={faWarehouse} /> Estoque</Link>
-                {/* Adicionando o ícone de logout */}
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-               
-                <br></br>
-                <Link to="/logout" className='link'><CiLogout /> Saida</Link>
+                {/* Inserindo várias tags <br> para empurrar o link de saída para baixo */}
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <Link to="/listasaida" className='link'><CiLogout /> Saida</Link>
             </nav>
         </div>
     );

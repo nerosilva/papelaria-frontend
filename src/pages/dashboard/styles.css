@@ -1,7 +1,8 @@
 /* Reset básico para remover padding e margem padrão dos elementos */
 * {
-    padding: 0;
-    margin: 0;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box; /* Incluir padding e border no cálculo total da largura */
 }
 
 /* Estilização do container principal do dashboard */
@@ -10,8 +11,6 @@
     height: 100vh; /* 100% da altura da viewport */
     display: flex;
     flex-direction: row; /* Elementos em linha */
-    width: 100%; /* Largura completa */
-    margin: auto; /* Centraliza horizontalmente se necessário */
 }
 
 /* Configuração do menu lateral */
@@ -32,21 +31,20 @@
 
 /* Container para imagens */
 .image-container {
-    margin: 0;
     display: flex;
     flex-direction: row; /* Imagens lado a lado */
-    align-items: flex-start;
-    text-align: left;
+    flex-wrap: wrap; /* Permitir quebra de linha para as imagens */
+    justify-content: center; /* Centralizar as imagens */
     background-color: #ffffff;
-    height: 89vh; /* 89% da altura da viewport */
+    padding: 25px; /* Espaçamento interno */
 }
 
 /* Estilo das imagens */
 .image-container img {
-    max-width: 150px; /* Largura máxima */
-    height: auto; /* Altura automática para manter a proporção */
-    border-radius: 100%; /* Borda arredondada para imagens circulares */
-    margin: 50px 130px 10px 0; /* Margens para espaçamento entre imagens */
+    width: 150px; /* Largura fixa para uniformidade */
+    height: 150px; /* Altura fixa para uniformidade */
+    border-radius: 50%; /* Borda arredondada para imagens circulares */
+    margin: 10px; /* Margens para espaçamento entre imagens */
     cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
     transition: transform 0.3s ease; /* Animação suave ao transformar */
 }
@@ -84,6 +82,6 @@
 .Principal h1 {
     text-align: center; /* Texto centralizado */
     color: #0f15ce; /* Cor do texto azul */
-    margin: 10px 0; /* Espaçamento acima e abaixo do título */
-    padding-top: px; /* Espaço extra no topo */
+    margin: 1px 0; /* Espaçamento acima e abaixo do título */
+    padding-top: 1px; /* Espaço extra no topo */
 }
