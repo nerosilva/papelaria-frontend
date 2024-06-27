@@ -9,7 +9,7 @@ import FornecedorImage from '../../assets/img/fornecedor.png'; // Importando a i
 import ProdutosImage from '../../assets/img/produtos.png'; // Importando a imagem dos produtos
 import EntradaImage from '../../assets/img/Entrada.png'; // Importando a imagem da entrada
 import EstoqueImage from '../../assets/img/Estoque.png'; // Importando a imagem do estoque
-import SaidaImage from '../../assets/img/Saida.png'; // Importando a imagem do sair
+import SairImage from '../../assets/img/sair.png'; // Importando a imagem do sair
 
 export default function Dashboard() {
   return (
@@ -45,7 +45,7 @@ export default function Dashboard() {
             </Link>
 
             <Link to="/listasaida">
-              <img src={SaidaImage} alt="Saída" className="saida-image" />
+              <img src={SairImage} alt="Saída" className="sair-image" />
             </Link>
           </div>
 
